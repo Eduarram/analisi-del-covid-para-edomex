@@ -73,6 +73,24 @@ range(c19_csosNuevos$MÃ.xico)
 ##no se encuentran en el rango del maximo(1212,75) y el minimo(53.25)
 ##por lo que deducimos que existen muchos datos atipicos.
 
+##calculamos la tasa de mortalidad 
+
+mean(c19_Decesos$Nacional)
+
+(517.3411/5722.328)*100
+##9.040745
+
+##Sacamos la tasa de contagio
+##población total 127 090 000
+
+(5723/127090000)*100
+##0.004503108
+
+
+
+
+
+
 
 
 

@@ -49,10 +49,58 @@ ggplot(c19_Decesos ,aes(x = Fecha, y = Nacional)) +
   geom_smooth(color="green") + theme_bw()
 
 ###grafica de la pandemia filtrada desde febrero
+
 c19_Decesos %>% filter(Fecha > "2021-01-15") %>% 
   ggplot(aes(x = Fecha, y = Nacional)) +
   geom_line(color="red") +
   geom_smooth(color="green") + theme_minimal() + 
-  geom_vline(xintercept =  2021-03-08)
+  geom_vline()
+
+###quantiles de los casos a nivel nacional 
+
+quantile(c19_csosNuevos$Nacional)
+
+##boxplot para encontrar los outliers e histograma
+
+boxplot(c19_csosNuevos$Nacional)
+
+ggplot(c19_csosNuevos, mapping = aes(x=Nacional), fill="green") +
+  geom_histogram(color= "green")
+
+##sacamos el rango de intercuantiles 
+
+IQR(c19_csosNuevos$Nacional)
+
+###sacamos e rango maximo y minimo de intercuantiles
+
+MIN_CN <- 2879.5 - 1.5*4250
+MAX_CR <- 2879.5 + 1.5*4250
+
+##calculamos el rango de la variable
+range(c19_csosNuevos$Nacional)
+
+## el rango de casos nuevos esta entre los rangos intercuantiles por lo
+## que deducimos que no existen outliers
+
+mean(c19_csosNuevos$Nacional) ##5723
+
+##analisis para defunciones 
+
+quantile(c19_Decesos$Nacional)
+
+##decesos en boxplot e histograma
+
+boxplot(c19_Decesos$Nacional)
+hist(c19_Decesos$Nacional)
+
+IQR(c19_Decesos$Nacional)
+
+##minimo 
+211.5-1.5*503.5
+##maximo
+211.5+1.5*503.5
+
+range(c19_Decesos$Nacional)
+
 
 
